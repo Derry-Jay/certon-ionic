@@ -1,0 +1,98 @@
+.back-button-ios {
+    color: #fff;
+
+  }
+.mb-10{margin-bottom:10px;}
+  ion-content {
+    --padding-top: 15px;
+    --padding-bottom: 15px;
+    --padding-start: 15px;
+    --padding-end: 15px;
+    background: #ffffff !important;
+  }
+
+  .main-section,
+  .main-section ion-button {
+    font-size: 15px;
+  }
+  .remember-section ion-label{
+    font-size:15px !important;
+  }
+  ion-button {
+    --padding-start: 0px;
+    --padding-end: 0px;
+  }
+
+  ion-checkbox {
+    --background-checked: #e29c59;
+    --border-color-checked: #e29c59;
+    --size: 23px;
+  }
+
+  .back-button-ios:hover {
+    border: 0px solid grey;
+  }
+
+  .header ion-col {
+    background-color: lightgrey;
+  }
+
+  .main-table {
+    border: 1px solid grey;
+    margin-bottom: 15px;
+  }
+
+  // .arw-icon{
+  //   color:lightgray !important;
+  //   background-color: black;
+  //   border-radius: 50%;
+  //   width: 13px;
+  //   height: 13px;
+  //   display: inline-block;
+  //   line-height: 14px;
+  // }
+
+  .main-table ion-col {
+    border-right: 1px solid grey;
+    border-bottom-style: none;
+
+  }
+
+  .order-sec {
+    display: inline-block;
+    float: right;
+  }
+
+  .line-odd {
+    background: #f5f5f5;
+  }
+
+  .line-oddeven {
+    background: #f5f5f5;
+  }
+
+  /*.viewpropertiesdata .row:nth-child(even),
+    .viewpropertiesdata .row:nth-child(even) .item-ios,
+    .viewpropertiesdata .row:nth-child(even) .item-md {
+      background: #f5f5f5;
+    }*/
+  .content {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .btn-link {
+    text-decoration: underline;
+
+  }
+
+  .textdanger {
+    color: red;
+  }
+
+  .remember-section {
+    --background-activated: transparent;
+  }
+  .header ion-icon{
+    margin-right:5px;
+  }

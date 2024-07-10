@@ -1,0 +1,51 @@
+ion-content{
+    --padding-start:20px;
+    --padding-end:20px;
+    --padding-top:20px;
+    --padding-bottom:20px;
+  }
+  ion-item{
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --border-style:none;
+    --border-width:0;
+    --inner-border-width:0;
+  }
+  .theme-btn{
+    --color: #fff;
+    --background: #e29c59;
+    text-transform: inherit;
+  }
+  .date-field{
+    border: 1px solid #95989a;
+    padding:0px 15px 0px 15px;
+    margin-right:10px;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .date-field .item-inner {
+    border: 1px solid #95989a !important;
+  }
+  
+  .item-ios {
+    padding-left: 0px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .addfive
+  {
+    margin-left:30px;
+  }
+  
+  
+  
+  .back-button-ios {
+      color:#fff;
+    }
+    .back-button-ios:hover { border: 0px solid grey; }
+  

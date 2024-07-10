@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button-ios" text="Back" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Edit Property</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content style="background: #ffffff !important;">
+  <div class="main-section">
+    <div class="add_property_1">
+      <form id="link-form1">
+        <div class="sm-sub-head-form" style="margin-bottom:20px;"> Edit Property</div>
+        <ion-list>
+          <!-- Postcode Lookup -->
+          <ion-item *ngIf="otherpid == 1" id="link-input2" class="ion-no-padding postcode-box form-m-bottom-30 " lines="none">
+            <ion-input type="text" placeholder="Enter Postcode" [(ngModel)]="postcode" name="postcode" [disabled]="true"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="otherpid != 1" id="link-input2" class="ion-no-padding postcode-box form-m-bottom-30 " lines="none">
+            <ion-input type="text" placeholder="Enter Postcode" [(ngModel)]="postcode" name="postcode" ></ion-input>
+          </ion-item>
+
+          <ion-button *ngIf="otherpid == 1" id="link-heading1" class="light-orange lookup-btn float-right" on-click="getpostcodelookup()" [disabled]="true">
+            Lookup
+          </ion-button>
+          <ion-button *ngIf="otherpid != 1" id="link-heading1" class="light-orange lookup-btn float-right" on-click="getpostcodelookup()">
+            Lookup
+          </ion-button>
+
+
+          <!--PostCode Address Field -->
+          <ion-item *ngIf="otherpid == 1" class="ion-no-padding form-m-bottom-30 clear_all" lines="none">
+            <ion-select placeholder="Select" [(ngModel)]="location" name="location" (ngModelChange)="chkErr('a')"
+              class="selectdropdown" [disabled]="true">
+              <ion-select-option *ngFor="let item of locations" value="{{item}}">{{item}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item *ngIf="otherpid != 1" class="ion-no-padding form-m-bottom-30 clear_all" lines="none">
+            <ion-select placeholder="Select" [(ngModel)]="location" name="location" (ngModelChange)="chkErr('a')"
+              class="selectdropdown">
+              <ion-select-option *ngFor="let item of locations" value="{{item}}">{{item}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <div *ngIf="addressErr" class="addrsEr">
+            Select any address
+          </div>
+
+          <!-- Property Type -->
+          <ion-item *ngIf="otherpidd == 1" class="form-m-bottom-30 ion-no-padding" lines="none">
+            <ion-select placeholder="Select Property Type" [(ngModel)]="propertytype" name="propertytype"
+              class="selectdropdown" [disabled]="true">
+              <ion-select-option *ngFor="let item of property_type" [value]="item.id">{{item.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item *ngIf="otherpidd != 1" class="form-m-bottom-30 ion-no-padding" lines="none">
+            <ion-select placeholder="Select Property Type" [(ngModel)]="propertytype" name="propertytype"
+              class="selectdropdown">
+              <ion-select-option *ngFor="let item of property_type" [value]="item.id">{{item.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <!-- QR Code Installation Date -->
+          <ion-item  *ngIf="otherpid == 1" class="form-m-bottom-30 pl-15 date-field ion-no-padding" lines="none">
+            <ion-label>QR Code Installation date</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" min="2015-01-01" max="2031-12-31" name="purchasedDate" [(ngModel)]="purchasedDate" [disabled]="true">
+            </ion-datetime>
+          </ion-item>
+          <ion-item  *ngIf="otherpid != 1" class="form-m-bottom-30 pl-15 date-field ion-no-padding" lines="none">
+            <ion-label>QR Code Installation date</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" min="2015-01-01" max="2031-12-31" name="purchasedDate" [(ngModel)]="purchasedDate" >
+            </ion-datetime>
+          </ion-item>
+
+        </ion-list>
+        <div *ngIf="otherpid == 1">
+          <ion-button expand="block" class="theme-btn" (click)="updateproperty()" [disabled]="true">Update</ion-button>
+        </div>
+        <div *ngIf="otherpid != 1">
+          <ion-button expand="block" class="theme-btn" (click)="updateproperty()">Update</ion-button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-title>CertOn HUB</ion-title>
+  </ion-toolbar>
+</ion-footer>

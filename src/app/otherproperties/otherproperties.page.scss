@@ -1,0 +1,266 @@
+ion-content {
+  --background: #ffffff;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+}
+
+ion-button {
+  --padding-start: 0px;
+  --padding-end: 0px;
+  margin: 0px;
+}
+
+.propertiesdata ion-row:nth-child(even),
+.propertiesdata ion-row:nth-child(even) ion-list {
+  background: #f5f5f5 !important;
+}
+
+.back-button-ios {
+  --color: #fff;
+}
+
+.back-button-ios:hover {
+  border: 0px solid grey;
+}
+
+.centerdiv {
+  text-align: center;
+}
+
+.header ion-col {
+  background-color: lightgrey;
+}
+
+.main-table {
+  border: 1px solid grey;
+  margin-bottom: 15px;
+}
+
+.arw-icon {
+  color: lightgray !important;
+  background-color: black;
+  border-radius: 50%;
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  line-height: 15px;
+}
+
+.main-table ion-col {
+  border-right: 1px solid grey;
+  border-bottom-style: none;
+  white-space: normal;
+  padding: 5px;
+
+}
+
+.main-table ion-col .item-radio .input-wrapper {
+  display: none;
+}
+
+.main-table ion-col .list-md,
+.main-table ion-col .list-ios {
+  margin-bottom: 0px;
+}
+
+.item-ios .radio-ios {
+  position: static;
+  display: block;
+  margin: 8px 11px 8px 8px;
+  border: 1px solid #000;
+  width: 24px;
+  height: 24px;
+}
+
+.radio-ios .radio-icon {
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 21px;
+  margin-left: 2px;
+}
+
+.item-ios .radio-ios .radio-checked .radio-inner {
+  border-color: #e29c59;
+}
+
+.main-table ion-col .item-checkbox {
+  padding-left: 0;
+}
+
+.main-table ion-col .item.item-ios .checkbox-ios {
+  margin-top: -8px;
+}
+
+.main-table ion-col:last-child {
+  border-right: none;
+}
+
+ion-col:last-child {
+  border-right: solid 1px grey;
+}
+
+.selectdropdown {
+  max-width: 100% !important;
+}
+
+.sub-head {
+  font-size: 16px;
+}
+
+#link-form1 .postcode-box {
+  width: calc(100% - 100px);
+  float: left;
+  display: inline-block;
+}
+
+.order-sec {
+  display: inline-block;
+  float: right;
+}
+
+.choose-location {
+  height: 150px;
+  overflow-y: scroll;
+  border: 1px solid #aaa !important;
+  margin: 15px auto;
+  width: calc(100% - 0px);
+}
+
+.line-odd {
+  background: #f5f5f5;
+}
+
+
+
+.addproperty .item-ios,
+.addproperty .item-md {
+  padding-left: 0px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.text-underline {
+  text-decoration: underline;
+
+}
+
+button.text-underline {
+  height: auto;
+  padding-left: 0px;
+  font-size: 1.4rem;
+  padding-bottom: 5px;
+}
+
+.alignn {
+  padding: 3px 7px;
+}
+
+.list-ios .date-field {
+  padding-right: 0px;
+}
+
+.scroll-content {
+  margin-bottom: 20px !important;
+  top: 80px;
+  margin-top: auto !important;
+}
+
+.propertiesdata p {
+  margin: 5px 0px;
+}
+
+@media (max-width: 767px) {
+
+  .myProp .header,
+  .propertiesdata_ipad {
+    display: none;
+  }
+
+  .myProp .col {
+    -webkit-flex-basis: 100%;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    border-right: none !important;
+  }
+
+  .myProp .col.address:before,
+  .myProp .col.city:before,
+  .myProp .col.viewonline:before {
+    display: block;
+    width: 50%;
+    float: left;
+    margin: auto;
+  }
+
+  .myProp .col .content {
+    display: inline-block;
+    width: 50%;
+  }
+
+  .myProp .col.address:before {
+    content: "Address :";
+  }
+
+  .myProp .col.city:before {
+    content: "City :";
+  }
+
+  .myProp .col.viewonline:before {
+    content: "Select :";
+  }
+
+  .myProp row:nth-child(even) {
+    background-color: #f5f5f5;
+  }
+}
+
+@media (min-width: 768px) {
+  .alignn {
+    padding: 5px;
+  }
+
+  .propertiesdata {
+    display: none;
+  }
+}
+
+.locErr {
+  color: red;
+  margin-top: -13px;
+  margin-bottom: 15px;
+}
+
+.pstlErr {
+  position: absolute;
+  color: red;
+  margin-top: 45px;
+}
+
+.propErr {
+  color: red;
+  margin-top: -26px;
+  margin-bottom: 13px;
+}
+
+.dateErr {
+  color: red;
+  margin-top: -27px;
+  margin-bottom: 21px;
+}
+
+.tab-main-section {
+  background: #ffffff;
+}
+
+.link {
+  color: #3880ff;
+}
+
+.list-ios {
+  background: none;
+}

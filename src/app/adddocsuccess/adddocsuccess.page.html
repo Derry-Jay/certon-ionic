@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Document Success</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background: #ffffff !important;">
+  <div class="main-section">
+    <p>
+      Thankyou. Your new document, and details, has been uploaded successfully to CertOn HUB.</p>
+
+    <p>The document {{doc_name}} is now stored against property {{address}} and you will receive an alert one month
+      before the expiration date you set of {{expire_date}}.</p>
+
+    <p>If any of these details need updating, you can do this from the Edit Document screen.</p>
+    <ion-button class="btn-link ion-no-padding" fill="clear" color="positive" on-click="backtohome()">Back to Home
+    </ion-button>
+  </div>
+
+</ion-content>

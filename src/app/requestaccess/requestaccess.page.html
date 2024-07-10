@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button-ios" text="Back" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Request Access</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background: #ffffff !important;">
+
+  <div class="main-section">
+    <div class="welcome-cont text-center">
+      Request Access to a Property
+    </div>
+    <p>
+      You would like to access the property:<br>
+      {{address}}</p>
+    <p>Your details:<br>
+      {{companyname}}<br>
+      {{firstname}} {{lastname}}</p>
+
+    <p>Will be sent to the Account holder to request access to the documents for this property.</p>
+
+    <div>
+      <ion-button type="submit" size="small" fill="clear" color="positive" class="ion-no-padding text-underline"
+        on-click="requestaccess()">Request Access</ion-button>
+    </div>
+  </div>
+</ion-content>
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-title>CertOn HUB</ion-title>
+  </ion-toolbar>
+</ion-footer>

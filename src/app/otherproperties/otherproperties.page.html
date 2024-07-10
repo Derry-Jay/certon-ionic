@@ -1,0 +1,58 @@
+<ion-content padding style="background: #ffffff !important;">
+  <div class="tab-main-section">
+    <div class="main-section-tables pad-bottom-0">
+      <div *ngIf="otherpropDetails.length > 0">
+        <ion-grid class="main-table myProp ion-no-padding">
+          <ion-row class="header ion-hide-sm-down">
+            <ion-col>Name</ion-col>
+            <ion-col>Address</ion-col>
+            <ion-col>City</ion-col>
+            <ion-col>Select</ion-col>
+          </ion-row>
+          <ion-row [class.line-odd]="((i+1) % 2 == 0)" *ngFor="let data of otherpropDetails let i=index;">
+            <ion-col class="alignn col">
+              <p style="margin:5px 0px;">{{ data.property_owner_name }}</p>
+              <p style="margin:5px 0px;" class="ion-hide-md-up"> {{ data.address1 }}</p>
+              <p style="margin:5px 0px" class="ion-hide-md-up"> {{ data.town }}</p>
+              <p style="margin:5px 0px;" class="ion-hide-md-up">
+                <ion-list>
+                  <ion-radio-group [(ngModel)]="relationship">
+                    <p id="view_property" style="color: #3880ff;margin:0px" class="text-underline"
+                      (click)="viewproperty(data.uuid)">
+                      View Property
+                    </p>
+                  </ion-radio-group>
+                </ion-list>
+              </p>
+
+            </ion-col>
+            <ion-col class="alignn1 col ion-hide-sm-down">
+              <p style="margin:5px 0px;"> {{ data.address1 }}</p>
+            </ion-col>
+            <ion-col class="ion-hide-sm-down">
+              <p style="margin:5px 0px"> {{ data.town }}</p>
+            </ion-col>
+            <ion-col class="ion-hide-sm-down">
+              <p style="margin:5px 0px;">
+                <ion-list>
+                  <ion-radio-group [(ngModel)]="relationship">
+                    <p id="view_property" style="color: #3880ff;margin:0px" class="text-underline"
+                      (click)="viewproperty(data.uuid)">
+                      View Property
+                    </p>
+                  </ion-radio-group>
+                </ion-list>
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div *ngIf="otherpropDetails.length <= 0">
+        <ion-row>
+          <ion-col>No Properties Found</ion-col>
+        </ion-row>
+      </div>
+    </div>
+  </div>
+</ion-content>

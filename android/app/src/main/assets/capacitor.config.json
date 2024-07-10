@@ -1,0 +1,13 @@
+{
+  "appId": "com.certonapp.app",
+  "appName": "CertOn HUB",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

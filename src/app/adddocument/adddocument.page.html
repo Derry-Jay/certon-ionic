@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button-ios" text="Back" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-back-button text="BACK" mode="ios">
+	</ion-back-button> -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Add Document</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background: #ffffff !important;">
+
+  <div class="main-section">
+    <div class="welcome-cont text-center">Add Document Details</div>
+    <!-- <div class="add-doc-form hide" id="AdddocFieldSection"> -->
+    <!-- <div *ngIf="showButton">
+          <button ion-button full class="light-orange takePic" (click)="takePicture()">Open Camera</button>
+          Or
+          <button ion-button full class="light-orange openCam" (click)="openGallery()">Open Gallery</button>
+        </div> -->
+
+    <div class="add-doc-form hide" id="AdddocFieldSection">
+      <form #contactForm="ngForm" (ngSubmit)="submitdata(contactForm.value)">
+        <ion-grid>
+          <ion-list>
+            <ion-item>
+              <ion-label>Document Capture</ion-label>
+            </ion-item>
+
+            <div class="document-preview">
+              <img *ngIf="camimg" id="captured_img" src="{{myImgUrl}}" class="logo-img"
+                    style="display:block;width:75%;height:auto;margin-left:auto;margin-right:auto;" />
+              <div *ngFor="let images of multipleimage">
+                <img id="captured_img" src="{{images}}" class="logo-img"
+                    style="display:block;width:75%;height:auto;margin-left:auto;margin-right:auto;" />
+              </div>
+            </div>
+            <ion-item>
+              <ion-label>Document Name</ion-label>
+            </ion-item>
+
+            <ion-item class="form-m-bottom-15 doc-text">
+              <ion-input type="text" style="display:none" name="filename" [(ngModel)]="filename"></ion-input>
+              <ion-input type="text" placeholder="Name" (keyup)="checkValid('a')" [(ngModel)]="document_name"
+                name="name">
+              </ion-input>
+            </ion-item>
+            <div *ngIf="docnam" class="valErr"> Select Document Name</div>
+            <ion-item>
+              <ion-label>Document Type</ion-label>
+            </ion-item>
+
+            <ion-item class="form-m-bottom-15 ">
+              <ion-select placeholder="Select Document Type" [(ngModel)]="documenttype" name="type"
+                class="selectdropdown" (ngModelChange)="checkValid('b')">
+                <ion-select-option *ngFor="let item of certificate_type" value="{{item.id}}">{{item.name}}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+            <div *ngIf="docType" class="valErr"> Select Document Type</div>
+
+            <!-- <ion-label *ngIf="description">Document Description</ion-label>
+            <ion-item *ngIf="description" class="form-m-bottom-15 doc-text">
+              <ion-input type="textarea" placeholder="Description" (keyup)="checkValid('d')" [(ngModel)]="docDescription"
+                name="docDescription">
+              </ion-input>
+            </ion-item>
+            <div *ngIf="docDescr" class="valErr"> Enter Document Description</div> -->
+            <ion-item>
+              <ion-label>Expiration Date</ion-label>
+            </ion-item>
+            <ion-item class="form-m-bottom-15 date-field">
+              <ion-datetime displayFormat="DD/MM/YYYY" min="{{datee}}" max="2031-12-31" placeholder="DD/MM/YYYY"
+                [(ngModel)]="purchasedDate" name="expire_date" (ngModelChange)="checkValid('c')">
+              </ion-datetime>
+            </ion-item>
+            <div *ngIf="docDate" class="valErr"> Select Expiration Date</div>
+
+            <div>
+              <ion-button expand="block" class="light-orange" type="submit">Upload and Save</ion-button>
+            </div>
+          </ion-list>
+        </ion-grid>
+      </form>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-title>CertOn HUB</ion-title>
+  </ion-toolbar>
+</ion-footer>
+

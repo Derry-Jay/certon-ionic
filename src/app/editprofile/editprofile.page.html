@@ -1,0 +1,325 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button-ios" text="Back" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background: #ffffff !important;">
+  <div class="main-section">
+    <ion-list>
+      <form novalidate [formGroup]="signupform" id="normalform">
+        <!-- FirstName -->
+        <ion-item class="form-group ion-no-padding" lines="none">
+          <ion-input type="text" placeholder="First Name" [(ngModel)]="Data.name" formControlName="name"
+            [class.error1]="!signupform.controls.name.valid && signupform.controls.name.dirty">
+          </ion-input>
+        </ion-item>
+        <ion-item class="errorItem ion-no-padding" lines="none"
+          *ngIf="( signupform.get('name').hasError('minlength') || signupform.get('name').hasError('maxlength') ||signupform.get('name').hasError('pattern') ||signupform.get('name').hasError('required') ) && signupform.get('name').touched">
+          <div class="error" *ngIf="signupform.get('name').hasError('required') && signupform.get('name').touched">
+            Please input your First name
+          </div>
+          <div class="error" *ngIf="signupform.get('name').hasError('minlength') && signupform.get('name').touched">
+            Minimum 2 characters
+          </div>
+          <div class="error" *ngIf="signupform.get('name').hasError('maxlength') && signupform.get('name').touched">
+            Maximum 30 characters
+          </div>
+          <div class="error" *ngIf="signupform.get('name').hasError('pattern') && signupform.get('name').touched">
+            Just use alphabet character
+          </div>
+        </ion-item>
+
+        <!-- Lastname -->
+        <ion-item class="form-group ion-no-padding" lines="none">
+          <ion-input type="text" placeholder="Last Name" [(ngModel)]="Data.lastname" formControlName="lastname"
+            [class.error1]="!signupform.controls.lastname.valid && signupform.controls.lastname.dirty">
+          </ion-input>
+        </ion-item>
+        <ion-item class="errorItem ion-no-padding" lines="none"
+          *ngIf="( signupform.get('lastname').hasError('minlength') || signupform.get('lastname').hasError('maxlength') ||signupform.get('lastname').hasError('pattern') ||signupform.get('lastname').hasError('required') ) && signupform.get('lastname').touched">
+          <div class="error"
+            *ngIf="signupform.get('lastname').hasError('required') && signupform.get('lastname').touched">
+            Please input your Last name
+          </div>
+          <div class="error"
+            *ngIf="signupform.get('lastname').hasError('minlength') && signupform.get('lastname').touched">
+            Minimum 2 characters
+          </div>
+          <div class="error"
+            *ngIf="signupform.get('lastname').hasError('maxlength') && signupform.get('lastname').touched">
+            Maximum 30 characters
+          </div>
+          <div class="error"
+            *ngIf="signupform.get('lastname').hasError('pattern') && signupform.get('lastname').touched">
+            Just use alphabet character
+          </div>
+        </ion-item>
+
+        <!-- email -->
+        <ion-item class="form-group ion-no-padding" lines="none">
+          <ion-input type="text" placeholder="Email" [(ngModel)]="Data.email" formControlName="email"
+            [class.error1]="!signupform.controls.email.valid && signupform.controls.email.dirty">
+          </ion-input>
+        </ion-item>
+        <ion-item class="errorItem ion-no-padding" lines="none"
+          *ngIf="( signupform.get('email').hasError('minlength') || signupform.get('email').hasError('pattern') ||signupform.get('email').hasError('required') ) && signupform.get('email').touched">
+          <div class="error" *ngIf="signupform.get('email').hasError('required') && signupform.get('email').touched">
+            Please input your email
+          </div>
+          <div class="error" *ngIf="signupform.get('email').hasError('pattern') && signupform.get('email').touched">
+            Email address invalid
+          </div>
+        </ion-item>
+
+        <!-- phonenumber -->
+        <ion-item class="form-group ion-no-padding" lines="none">
+          <ion-input type="number" placeholder="Phone Number" [(ngModel)]="Data.phonenumber"
+            formControlName="phonenumber"
+            [class.error1]="!signupform.controls.phonenumber.valid && signupform.controls.phonenumber.dirty">
+          </ion-input>
+        </ion-item>
+        <ion-item class="errorItem ion-no-padding" lines="none"
+          *ngIf="( signupform.get('phonenumber').hasError('minlength') || signupform.get('phonenumber').hasError('maxlength') ||signupform.get('phonenumber').hasError('pattern') ||signupform.get('phonenumber').hasError('required') ) && signupform.get('phonenumber').touched">
+          <div class="error"
+            *ngIf="signupform.get('phonenumber').hasError('required') && signupform.get('phonenumber').touched">
+            Please input your contact telephone number
+          </div>
+          <div class="error"
+            *ngIf="signupform.get('phonenumber').hasError('minlength') && signupform.get('phonenumber').touched">
+            Minimum 10 digits
+          </div>
+          <div class="error"
+            *ngIf="signupform.get('phonenumber').hasError('maxlength') && signupform.get('phonenumber').touched">
+            Maximum 12 digits
+          </div>
+          <div class="error"
+            *ngIf="signupform.get('phonenumber').hasError('pattern') && signupform.get('phonenumber').touched">
+            Just use numeric character
+          </div>
+        </ion-item>
+
+        <!-- PostCode Lookup -->
+        <ion-item class="form-group postcode-box form-m-bottom-30 ion-no-padding" lines="none">
+          <ion-input type="text" placeholder="Enter Postcode" [(ngModel)]="Data.postcode" formControlName="postcode"
+            (keyup)="chkadrs()"></ion-input>
+        </ion-item>
+        <div class="lookup-btn float-right">
+          <ion-button mode="ios" class="light-orange lookup-btn" id="link-heading1" on-click="getpostcodelookup()">
+            Lookup
+          </ion-button>
+        </div>
+        <br>
+        <div *ngIf="pstcode" style="color: red ; float: left;margin-left: 16px;margin-top: -25px;">
+          Select Postcode
+        </div>
+        <ion-item class="form-m-bottom-30 ion-no-padding clear_all" lines="none">
+          <ion-select placeholder="Select" (ngModelChange)="adrschk()" [(ngModel)]="Data.location"
+            formControlName="location" class="selectdropdown">
+            <ion-select-option (click)="chkadrs()" *ngFor="let item of locations" value="{{item}}">{{item}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div *ngIf="adrs" style="color: red ; margin-left: 16px;margin-top: -25px;">
+          Select an Address
+        </div>
+
+        <br>
+        <!-- Contractor -->
+        <div id="companysection" *ngIf="showcompany">
+          <!-- Company Name -->
+          <ion-item class="form-group ion-no-padding" lines="none">
+            <ion-input type="text" placeholder="Company Name" [(ngModel)]="Data.companyname"
+              formControlName="companyname"
+              [class.error1]="!signupform.controls.companyname.valid && signupform.controls.companyname.dirty">
+            </ion-input>
+          </ion-item>
+
+          <!-- Company PhoneNumber -->
+          <ion-item class="form-group ion-no-padding" lines="none">
+            <ion-input type="number" placeholder="Company Number" [(ngModel)]="Data.companyphone"
+              formControlName="companyphone"
+              [class.error1]="!signupform.controls.companyphone.valid && signupform.controls.companyphone.dirty">
+            </ion-input>
+          </ion-item>
+          <ion-item class="errorItem ion-no-padding" lines="none"
+            *ngIf="( signupform.get('companyphone').hasError('minlength') || signupform.get('companyphone').hasError('maxlength') ||signupform.get('companyphone').hasError('pattern') ||signupform.get('companyphone').hasError('required') ) && signupform.get('companyphone').touched">
+            <div class="error"
+              *ngIf="signupform.get('companyphone').hasError('required') && signupform.get('companyphone').touched">
+              Please input Company Number
+            </div>
+            <div class="error"
+              *ngIf="signupform.get('companyphone').hasError('minlength') && signupform.get('companyphone').touched">
+              Minimum 4 characters
+            </div>
+            <div class="error"
+              *ngIf="signupform.get('companyphone').hasError('maxlength') && signupform.get('companyphone').touched">
+              Maximum 30 characters
+            </div>
+          </ion-item>
+
+          <!-- Company Registration Number -->
+          <ion-item class="form-group ion-no-padding" lines="none">
+            <ion-input type="number" placeholder="Company Registration No" [(ngModel)]="Data.companyregno"
+              formControlName="companyregno"
+              [class.error1]="!signupform.controls.companyregno.valid && signupform.controls.companyregno.dirty">
+            </ion-input>
+          </ion-item>
+          <ion-item class="errorItem ion-no-padding" lines="none"
+            *ngIf="( signupform.get('companyregno').hasError('minlength') || signupform.get('companyregno').hasError('maxlength') ||signupform.get('companyregno').hasError('pattern') ||signupform.get('companyregno').hasError('required') ) && signupform.get('companyregno').touched">
+            <div class="error"
+              *ngIf="signupform.get('companyregno').hasError('required') && signupform.get('companyregno').touched">
+              Please input Company Registration Number
+            </div>
+            <div class="error"
+              *ngIf="signupform.get('companyregno').hasError('minlength') && signupform.get('companyregno').touched">
+              Minimum 4 characters
+            </div>
+            <div class="error"
+              *ngIf="signupform.get('companyregno').hasError('maxlength') && signupform.get('companyregno').touched">
+              Maximum 30 characters
+            </div>
+          </ion-item>
+
+          <!-- Sectors -->
+          <h5 class="sector-heading">Sectors</h5>
+          <ion-list>
+
+            <ion-item class="col-50 ion-no-padding" lines="none">
+              <ion-label>Electrical</ion-label>
+              <ion-checkbox [checked]="Electrical" on-click="selectlist('1')">HomeOwner</ion-checkbox>
+            </ion-item>
+            <ion-item class="col-50 ion-no-padding" lines="none">
+              <ion-label>Compliance</ion-label>
+              <ion-checkbox [checked]="Compliance" on-click="selectlist('2')">Contractor</ion-checkbox>
+            </ion-item>
+            <ion-item class="col-50 ion-no-padding" lines="none">
+              <ion-label>Gas Safe</ion-label>
+              <ion-checkbox [checked]="gas" on-click="selectlist('3')">HomeOwner</ion-checkbox>
+            </ion-item>
+            <ion-item class="col-50 ion-no-padding" lines="none">
+              <ion-label>Construction</ion-label>
+              <ion-checkbox [checked]="Construction" on-click="selectlist('4')">HomeOwner</ion-checkbox>
+            </ion-item>
+            <ion-item class="col-50 ion-no-padding" lines="none">
+              <ion-label>FENSA</ion-label>
+              <ion-checkbox [checked]="fensa" on-click="selectlist('5')">HomeOwner</ion-checkbox>
+            </ion-item>
+            <ion-item class="col-50 ion-no-padding" lines="none">
+              <ion-label>Other</ion-label>
+              <ion-checkbox [checked]="othr" on-click="selectlist('6')">HomeOwner</ion-checkbox>
+            </ion-item>
+
+          </ion-list>
+          <div *ngIf="selectLi" class="errClr mb-10">
+            Select any sector list
+          </div>
+        </div>
+
+        <!-- Password -->
+        <ion-item class="form-group ion-no-padding" lines="none">
+          <ion-label class="ion-no-margin">
+            <ion-icon *ngIf="showtik" style="position:absolute;right: 0;
+							width: 40px;
+							top: 11px;
+							font-size: x-large;
+							color: green;" name="checkmark"></ion-icon>
+            <ion-icon *ngIf="showex" style="position: absolute;
+							right: 0;
+							width: 40px;
+							top: 11px;font-size: x-large;color: red;" name="close"></ion-icon>
+          </ion-label>
+          <ion-input type="password" placeholder="Password" [(ngModel)]="Data.password" formControlName="password"
+            [class.error1]="!signupform.controls.password.valid && signupform.controls.password.dirty"
+            (keyup)="chkPsd()">
+          </ion-input>
+        </ion-item>
+        <!-- <div [ngStyle]="passwordStrength"></div> -->
+        <!-- <ion-item class="errorItem" no-lines
+					*ngIf="( signupform.get('password').hasError('minlength') || signupform.get('password').hasError('maxlength') ||signupform.get('password').hasError('required') ) && signupform.get('password').touched">
+					<div class="error"
+						*ngIf="signupform.get('password').hasError('required') && signupform.get('password').touched">
+						Please input your password
+					</div>
+					<div class="error"
+						*ngIf="signupform.get('password').hasError('minlength') && signupform.get('password').touched">
+						Minimum 6 characters
+					</div>
+					<div class="error"
+						*ngIf="signupform.get('password').hasError('maxlength') && signupform.get('password').touched">
+						Maximum 12 characters
+					</div>
+				</ion-item> -->
+        <ion-item *ngIf="charerr" class="ion-no-padding" lines="none">
+          <div style="color:red;white-space: normal;font-size:15px;">{{charerr}}</div>
+        </ion-item>
+        <ion-item *ngIf="digiterr" class="ion-no-padding" lines="none">
+          <div style="color:red;white-space: normal;font-size:15px;">{{digiterr}}</div>
+        </ion-item>
+        <ion-item *ngIf="uppercaseerr" class="ion-no-padding" lines="none">
+          <div style="color:red;white-space: normal;font-size:15px;">{{uppercaseerr}}</div>
+        </ion-item>
+        <ion-item *ngIf="specialcharerr" class="ion-no-padding mb-10" lines="none">
+          <div style="color:red;white-space: normal;font-size:15px;">{{specialcharerr}}</div>
+        </ion-item>
+        <!-- Confirm Password -->
+        <ion-item class="form-group ion-no-padding" lines="none">
+          <ion-label class="ion-no-margin">
+            <ion-icon *ngIf="cnfmPsdok" style="position:absolute;right: 0;
+						width: 40px;
+						top: 11px;
+						font-size: x-large;
+						color: green;" name="checkmark"></ion-icon>
+            <ion-icon *ngIf="cnfmPsd" style="position: absolute;
+						right: 0;
+						width: 40px;
+						top: 11px;font-size: x-large;color: red;" name="close"></ion-icon>
+          </ion-label>
+          <ion-input type="password" placeholder="Confirm Password" [(ngModel)]="Data.confirmpassword"
+            formControlName="confirmpassword" (keyup)="chkPsd()"
+            [class.error1]="!signupform.controls.confirmpassword.valid && signupform.controls.confirmpassword.dirty">
+          </ion-input>
+        </ion-item>
+        <!-- <ion-item class="errorItem" no-lines
+					*ngIf="( signupform.get('confirmpassword').hasError('minlength') || signupform.get('confirmpassword').hasError('maxlength') ||signupform.get('confirmpassword').hasError('required') ) && signupform.get('password').touched">
+					<div class="error"
+						*ngIf="signupform.get('confirmpassword').hasError('required') && signupform.get('confirmpassword').touched">
+						Please input your password
+					</div>
+					<div class="error"
+						*ngIf="signupform.get('confirmpassword').hasError('minlength') && signupform.get('confirmpassword').touched">
+						Minimum 6 characters
+					</div>
+					<div class="error"
+						*ngIf="signupform.get('confirmpassword').hasError('maxlength') && signupform.get('confirmpassword').touched">
+						Maximum 12 characters
+					</div>
+				</ion-item> -->
+        <ion-item *ngIf="psdErr" class="ion-no-padding" lines="none">
+          <div style="color: red;font-size:15px;" class="errorItem">
+            Password does not match
+          </div>
+        </ion-item>
+        <br>
+        <div class="clearfix">
+          <ion-button class="theme-btn" mode="ios" on-click="updateprofile()" [disabled]="signupform.invalid"
+            expand="block"> Update Profile
+          </ion-button>
+        </div>
+      </form>
+    </ion-list>
+  </div>
+</ion-content>
+
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-title>CertOn HUB</ion-title>
+  </ion-toolbar>
+</ion-footer>

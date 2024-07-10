@@ -1,0 +1,116 @@
+    .back-button-ios {
+      color: #fff;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .item-ios .radio-ios {
+        position: static;
+        display: block;
+        margin: 8px 11px 8px 8px;
+        border: 1px solid #000;
+        width: 24px;
+        height: 24px;
+      }
+
+  .radio-ios .radio-icon {
+    position: relative;
+    display: block;
+    width: 16px;
+    height: 21px;
+    margin-left: 2px;
+  }
+.errClr{
+  color: red;
+  font-size:15px;
+}
+  .back-button-ios{
+  display:block !important;
+  }
+
+      .item-ios .radio-ios .radio-checked .radio-inner {
+        border-color: #e29c59;
+      }
+      h5 {
+      white-space: normal;
+      }
+    .radiogrp {
+      margin-left:20%;
+      margin-right:20%;
+    }
+      .btn-custom{
+      background-color: #e29c59;
+      }
+      .item-ios {
+      padding-left:0px;
+      }
+      .sectors .item-block {
+      width: 50%;
+      float: left;
+      }
+      ion-item.errorItem  {
+        --min-height: auto !important;
+        margin-bottom:10px;
+
+}
+ion-item.errorItem .label {
+
+        margin-top: 0px;
+    }
+    .item-ios p{padding-bottom: 10px;}
+    .ml-17{margin-left: 17px !important;}
+    .ml-15{margin-left: 15px !important;}
+    .clear_all{
+      clear:both;
+    }
+      .error {
+        color: #ff0000;
+        font-size: 14px;
+    }
+    .postcode-box {
+      width: calc(100% - 100px);
+      float: left;
+      display: inline-block;
+    }
+    .choose-location {
+      height: 150px;
+      overflow-y: scroll;
+      border: 1px solid #aaa !important;
+      margin: 15px auto;
+      width: calc(100% - 0px);
+      padding:0px 5px;
+    }
+    .button-ios{margin:auto; height: 3em;}
+    .label-ios{margin-right: 0px;}
+    .mb-0{margin-bottom: 0px;}
+    .mt-10{margin-top: 10px !important;}
+    .mb-10{margin-bottom:10px !important};
+    // my css
+
+ion-radio{
+  border: 1px solid #95989a !important;
+  width: 30px;
+  height: 30px;
+  margin:8px 3px;
+  --color-checked:#e29c59;
+}
+ion-checkbox{
+  --border-radius: 0px !important;
+  --checkmark-color: #e29c59;
+  --background-checked: transparent;
+  --border-color: #95989a;
+  --border-color-checked: #95989a;
+}
+.register_title{
+  margin-top:0px;
+}
+ion-item{
+  --inner-padding-end:0px !important;
+}
+ion-item.item-checkbox-checked ion-label {
+  --color:#3880ff;
+}
+// my css end
+
+
+  .hide { display: none; }

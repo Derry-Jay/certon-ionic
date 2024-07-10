@@ -1,0 +1,49 @@
+<ion-header *ngIf="typeid == 2">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button-ios" text="Back" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-back-button text="BACK" mode="ios">
+      </ion-back-button>-->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Properties</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding style="background: #ffffff !important;">
+  <div class="tab-main-section {{classname}}">
+    <div class="main-section-tables pad-bottom-0">
+      <div *ngIf="typeid == 2" class="welcome-cont">
+        Welcome {{ username }}
+        <p class="sm-sub-head-table">My Properties</p>
+      </div>
+      <div *ngIf="propdata.length > 0">
+        <ion-grid class="main-table myProp ion-no-padding">
+          <ion-row class="header ion-hide-sm-down">
+            <ion-col>Address</ion-col>
+            <ion-col>City</ion-col>
+            <ion-col>Select</ion-col>
+          </ion-row>
+          <ion-row [class.line-odd]="((i+1) % 2 == 0)" *ngFor="let data of propdata let i=index;">
+            <ion-col class="alignn1 col">
+              <p style="margin:5px 0px;"> {{ data.address1 }}</p>
+            </ion-col>
+            <ion-col>
+              <p style="margin:5px 0px"> {{ data.town }}</p>
+            </ion-col>
+            <ion-col>
+              <p style="margin:5px 0px; color: #3880ff;" id="view_property" class="text-underline ion-no-padding"
+                (click)="viewproperty(data.uuid)">View Property</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <div *ngIf="propdata.length <= 0">
+        <ion-row>
+          <ion-col>No Properties Found</ion-col>
+        </ion-row>
+      </div>
+    </div>
+  </div>
+</ion-content>

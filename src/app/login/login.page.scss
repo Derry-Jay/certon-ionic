@@ -1,0 +1,128 @@
+.remember-section {
+  margin: 0 auto;
+  width: 200px;
+  font-size: 15px;
+  --background-activated: transparent;
+}
+
+.item.item-md .checkbox-md {
+  position: static;
+  display: block;
+  margin: 9px 15px 9px 4px;
+}
+
+.m-bottom-10 {
+  margin-bottom: 10px;
+}
+
+.m-bottom-30 {
+  margin-bottom: 30px;
+}
+
+.m-bottom-15 {
+  margin-bottom: 15px;
+}
+
+.m-bottom-5 {
+  margin-bottom: 5px;
+}
+
+.btn-section.center {
+  text-align: center;
+}
+
+.item-ios.item-block .item-inner {
+  border-bottom: 0px;
+}
+
+/*Today's styles*/
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+.list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child,
+.list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child,
+.item-md.item-block .item-inner {
+  border-bottom: 0px;
+  box-shadow: none;
+}
+
+.forgetpwd {
+  text-decoration: underline;
+  text-transform: inherit;
+  color: #3880ff;
+  text-align: center;
+}
+
+ion-checkbox {
+  --checkmark-color: #fff;
+  --background-checked: #e29c59;
+  --border-radius: 50%;
+  --border-color: #95989a;
+  --border-color-checked: #e29c59;
+  --size: 20px;
+  --checkmark-width: 3px;
+  /* padding: 5px; */
+  box-sizing: border-box;
+  margin-right: 15px;
+}
+
+ion-item {
+  --border-style: none;
+  --highlight-height: 0px;
+}
+
+.logo-img {
+  width: 300px !important;
+  margin-top: 10%;
+  margin-bottom: 4%;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+
+
+.invldusr {
+  color: red;
+  max-width: 300px;
+  margin-top: -20px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-left:5px;
+}
+
+@media screen and (max-width: 380px) {
+  .invldusr {
+    padding-left: 20px;
+  }
+}
+
+.button-md:hover:not(.disable-hover) {
+  background: #e29c59;
+  padding: 10px 15px;
+  color: #fff;
+}
+
+.checkbox-ios .checkbox-checked {
+  background: #e29c59;
+  border-color: #e29c59;
+}
+
+.theme-btn {
+  --color: #fff;
+  --background: #e29c59;
+  text-transform: inherit;
+}
+
+ion-content {
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+}
+
+ion-input {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 0px 30px 0px 30px !important;
+}

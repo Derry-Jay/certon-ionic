@@ -1,0 +1,106 @@
+.header {
+    background-color: lightgrey;
+    font-size: 16px;
+    border-right: 1px solid grey;
+    border-bottom-style: none;
+    white-space: normal;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  ion-content {
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+  }
+  ion-list ion-button{
+    font-size:14px !important;
+  }
+
+  .row.header .col {
+    display: inline-block;
+  }
+
+  .row.header .notifications {
+    padding: 5px;
+  }
+
+  .delete ion-button {
+    height: 100%;
+      --padding-top: 15px;
+      --padding-bottom: 15px;
+      --padding-start: 10px;
+      --padding-end: 10px;
+      --border-radius: 4px !important;
+      --color: #fff;
+      margin: 0px;
+      font-size: 14px;
+      margin-right: 5px;
+  }
+  .delete ion-button:first-of-type{
+    border-left:1px solid grey;
+  }
+  .delete ion-button:last-of-type {
+    margin-right: 0px;
+  }
+
+  ion-list {
+    padding: 0px;
+  }
+
+  ion-checkbox {
+    --size: 20px;
+    --background-checked: #e29c59;
+    --border-color-checked: #e29c59;
+    position:relative !important;
+  }
+
+  #login-button3 {
+    background: none;
+    color: var(--ion-color-primary, #3880ff);
+    white-space: normal;
+  }
+
+  .main-table {
+    border: 1px solid grey;
+    margin-bottom: 15px;
+  }
+
+  //   .main-table .row:nth-child(even)  {
+  //  background-color:#f9f9f9
+  //   }
+
+  .readData {
+    --background: rgb(219, 219, 219);
+    border-bottom: 1px solid grey !important;
+  }
+
+  .item-native {
+    --border-style: none;
+  }
+
+  .main-table .col .button-inner {
+    word-break: break-word;
+    white-space: normal;
+    text-align: left;
+  }
+
+  .delete {
+    text-align: right;
+    display: block;
+    background-color: lightgray;
+    padding:0px;
+  }
+  .back-button-ios {
+    color: #fff;
+  }
+
+  .back-button-ios:hover {
+    border: 0px solid grey;
+  }
+  @media screen and (max-width:360px){
+    .delete ion-button{
+      font-size:12px;
+    }
+  }

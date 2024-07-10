@@ -1,0 +1,306 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+html,
+body.transparent-body,
+.transparent-body,
+.transparent-body ion-app,
+.transparent-body .app-root,
+.transparent-body ion-nav,
+.transparent-body .ion-page,
+.transparent-body .nav-decor,
+.transparent-body ion-content,
+.transparent-body .viewscan,
+.transparent-body .fixed-content,
+.transparent-body .scroll-content {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+body{
+  font-size:15px;
+}
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+ion-select {
+  max-width: 100%;
+  width: 100%;
+}
+.back-button-ios {
+  color: #fff;
+}
+.bar-button-default-ios,
+.bar-button-default.bar-button-ios-default,
+.bar-button-clear-ios-default {
+  color: #FFF;
+}
+
+ion-app.ios [padding] .scroll-content,
+ion-app.md [padding] .scroll-content {
+  padding: 0;
+}
+
+.transparent-body {
+  background: transparent none !important;
+}
+
+.button-ios {
+  margin: 0px
+}
+
+.light-orange {
+  --background: #e29c59 !important;
+  --border-radius:5px;
+}
+
+.list-ios .item-block .item-inner {
+  border: 0px !important;
+}
+
+.list-ios>.item-block:first-child {
+  border-top: 0;
+}
+
+.list-ios>.item-block:last-child {
+  border-bottom: 0;
+}
+
+.item-input ion-input,
+.item-input ion-textarea,
+.item-select ion-select,
+.item-ios.item-select .item-inner,
+.item-md.item-select .item-inner {
+  /*margin-right: 15px; */
+  border: 1px solid #95989a !important;
+  padding: 0px 15px 0px 15px !important;
+  font-size:15px;
+}
+
+.item-select ion-select {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.item-ios.item-select .item-inner .label-ios,
+.text-input-ios {
+  padding-left: 15px;
+  color: #505050;
+}
+
+.item-ios.item-select .item-inner .select-ios .select-text,
+.alert-ios [aria-checked=true] .alert-radio-label,
+.alert-button .button-inner {
+  color: #505050;
+}
+
+.alert-ios [aria-checked=true] .alert-radio-inner {
+  border-color: #e29c59;
+}
+
+
+
+.form-m-bottom-30 {
+  margin-bottom: 30px;
+}
+.form-m-bottom-15{
+  margin-bottom:15px;
+}
+.label-ios+ion-input .text-input,
+.label-ios+ion-textarea .text-input,
+.label-ios+.input+.cloned-input {
+  color: #505050;
+}
+
+.tabs-ios .tab-button-icon {
+  border: 1px solid #7c7c7c;
+  border-radius: 100%;
+}
+
+.tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
+  color: #fff;
+  background: #e29c59;
+  border-radius: 100%;
+  border-color: #e29c59;
+}
+
+.tabs-ios .tab-button:hover:not(.disable-hover),
+.tabs-ios .tab-button[aria-selected=true] {
+  color: #7c7c7c;
+}
+
+.tabs-ios .tab-button-icon {
+  margin-top: 4px;
+  margin-bottom: 1px;
+  min-width: 50px;
+  height: 50px;
+  font-size: 30px;
+  line-height: 1.7;
+}
+
+.theme-btn-full-width {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+
+.theme-btn-full-width button {
+  width: 100%;
+  background: #e29c59;
+}
+
+.section-wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.scroll-content {
+  margin-bottom: 46px;
+}
+
+.ios .ion-page.show-page~.nav-decor,
+.nav-decor {
+  background: transparent !important;
+}
+
+
+@media(min-width: 320px) {
+  ::-webkit-scrollbar {
+    width: 7px;
+    background-color: #ffffff;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  }
+}
+
+.toolbar-background-ios,
+.toolbar-background-md {
+  background: #e29c59;
+}
+
+.toolbar-title-ios,
+.toolbar-content-ios,
+.toolbar-title-md,
+.toolbar-content-md {
+  color: #fff;
+}
+
+.copyrights {
+  font-size: 12px;
+  padding: 7px 0px;
+
+  span {
+    font-size: 10px;
+  }
+}
+
+.list-md .date-field .item-inner {
+  border: 1px solid #95989a !important;
+}
+
+// .item-ios, .button-ios { font-size: 1.4rem; }
+.error {
+  color: #ff0000;
+  font-size:15px;
+}
+.valErr{
+  font-size:15px !important;
+  color: #ff0000 !important;
+}
+//own scss for updated version
+
+ion-footer ion-title {
+  font-size: 12px;
+  // padding: 7px 0px;
+  color: white;
+  background-color: #e29c59;
+  text-align: center;
+}
+
+ion-header ion-title {
+  color: white;
+  background-color: #e29c59;
+  text-align: center;
+  font-weight: 600;
+  font-size:18px;
+}
+
+ion-header ion-toolbar,
+ion-footer ion-toolbar {
+  --background: #e29c59;
+}
+
+ion-header ion-menu-button {
+  --color: #fff;
+}
+
+/*slides styles*/
+
+.swiper-pagination {
+  width: 150px !important;
+  top: 0px;
+  height: 30px;
+  right: 0;
+  margin: 0 auto;
+}
+
+.swiper-pagination-bullet {
+  width: 16px;
+  height: 3px;
+  background: #b57c47;
+  border-radius: 0;
+  opacity: 7;
+}
+
+.swiper-pagination-bullet-active {
+  background: #000000;
+}
+
+.theme-btn {
+  --color: #fff;
+  --background: #e29c59;
+  text-transform: inherit;
+  font-size:15px;
+  --border-radius:5px !important;
+}

@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button-ios" text="Back" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-back-button text="BACK" mode="ios">
+	</ion-back-button> -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>View Property</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background: #ffffff !important;">
+  <div class="main-section">
+
+    <!-- About Property -->
+    <ion-grid class="ion-no-padding">
+      <ion-row class="mb-10">
+        <ion-col>
+          <p><strong>View Property:</strong></p>
+          <p>{{address1}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row class="mb-10">
+        <ion-col>Date QR Code Added:</ion-col>
+        <ion-col>{{datecreated}}</ion-col>
+      </ion-row>
+      <ion-row class="mb-10">
+        <ion-col>Property Type:</ion-col>
+        <ion-col>{{propertytype}}</ion-col>
+      </ion-row>
+
+     <ion-row *ngIf="otherprop == 0">
+        <ion-col text-left>
+          <ion-button id="login-button3" fill="clear" class="btn-link" no-padding color="positive"
+            on-click="editproperty()">Edit this Property</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Properties Document -->
+    <p><strong>Property Saved Documents</strong></p>
+    <div class="main-table">
+      <!-- Headings -->
+      <ion-row class="header">
+        <ion-col>Cert. Name <div class="order-sec">
+            <ion-icon name="chevron-down-circle-outline" [ngClass]="{'arw-icon': AddrdwnArw}" (click)="sorting(1)">
+            </ion-icon>
+            <ion-icon name="chevron-up-circle-outline" [ngClass]="{'arw-icon': AddrupArw}" (click)="reverse(1)">
+            </ion-icon>
+          </div>
+        </ion-col>
+        <ion-col>Cert. Type <div class="order-sec">
+            <ion-icon name="chevron-up-circle-outline" [ngClass]="{'arw-icon': citydwnArw}" (click)="sorting(2)">
+            </ion-icon>
+            <ion-icon name="chevron-up-circle-outline" [ngClass]="{'arw-icon': cityupArw}" (click)="reverse(2)">
+            </ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+      <!-- Values -->
+      <div class="viewpropertiesdata">
+        <ion-row *ngFor="let dat of docData">
+          <ion-col>
+            <div class="content">
+              <a class="btn-link" no-padding color="positive" on-click="viewdocument(dat.uuid)"> {{dat.name}} </a>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="content">{{dat.document_type}}</div>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+
+    <!-- Adding new Document -->
+
+    <div>You have {{document_available}} document spaces available</div>
+    <ion-button *ngIf="document_available >= 1" class="btn-link" fill="clear" color="positive" on-click="adddocument()">
+      Add a New Document</ion-button>
+    <div *ngIf="document_available <= 0">Please visit your account on our website to buy more spaces.</div>
+    <div *ngIf="document_available <= 0">
+      <a href=""></a>
+    </div>
+
+  </div>
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-title>CertOn HUB</ion-title>
+  </ion-toolbar>
+</ion-footer>

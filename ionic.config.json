@@ -1,0 +1,7 @@
+{
+  "name": "CertOn HUB",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

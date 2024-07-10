@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button-ios" text="Back" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-back-button text="BACK" mode="ios">
+	</ion-back-button> -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Documents</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background: #ffffff !important;">
+  <div class="main-section">
+    <div class="welcome-cont">
+      Welcome {{username}}
+      <p class="sm-sub-head-table">My Document Details</p>
+    </div>
+
+    <div *ngIf="propdata.length <= 0" class="main-table myProp ion-no-padding">
+      <div class="row">
+        <div class="col">No Documents Found</div>
+      </div>
+    </div>
+    <div *ngIf="propdata.length > 0">
+      <ion-grid class="main-table myProp ion-no-padding">
+        <ion-row class="header ion-hide-sm-down">
+          <ion-col>Name</ion-col>
+          <ion-col>Type</ion-col>
+          <ion-col>View Online</ion-col>
+          <ion-col>Expiration Date</ion-col>
+          <ion-col>Property</ion-col>
+          <ion-col>Download</ion-col>
+        </ion-row>
+        <ion-row [class.line-odd]="((i+1) % 2 == 0)" *ngFor="let data of propdata let i=index;">
+          <ion-col>
+            <div class="ion-hide-sm-down">{{data.name}}</div>
+            <div class="ion-hide-md-up ion-padding-bottom equal">
+              <div class="row">
+                <div>Name : </div>
+                <div>{{data.name}}</div>
+              </div>
+              <div class="row">
+                <div>Type : </div>
+                <div>{{data.document_type}}</div>
+              </div>
+              <div class="row">
+                <div>View Online : </div>
+                <div *ngFor="let file of data.doc_file">
+                  <div class="viewonline" (click)="Viewfile(file,data.doc_file_extn,data.name)">
+                    <div class="content1">
+                      <p style="color: #3880ff;margin:0px" class="text-underline">
+                        View
+                        Document
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div>Expiration date : </div>
+                <div>{{data.expire_date}}</div>
+              </div>
+              <div class="ion-padding-bottom row">
+                <div>Property : </div>
+                <div>{{data.address1}}</div>
+              </div>
+              <div class="ion-padding-bottom row">
+                <div>Download : </div>
+                <div class="row1" *ngFor="let file of data.doc_file">
+                  <div class="download1" (click)="Viewfile(file,data.doc_file_extn,data.name)">
+                    <div class="content1">
+                      <p id="view_property" style="color: #3880ff;margin:0px" class="text-underline">
+                        Download a Copy
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col class="ion-hide-sm-down">
+            <div>{{data.document_type}}</div>
+          </ion-col>
+          <ion-col class="ion-hide-sm-down">
+            <div class="row1" *ngFor="let file of data.doc_file">
+              <div class="col1 viewonline" (click)="Viewfile(file,data.doc_file_extn,data.name)">
+                <div class="content1">
+                  <ion-button style="padding:0px;margin:0px;" color="primary" size="small" fill="clear"
+                    class="text-underline ion-no-padding" ion-button clear color="positive">View
+                    Document</ion-button>
+                </div>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col class="ion-hide-sm-down">
+            <div>{{data.expire_date}}</div>
+          </ion-col>
+          <ion-col class="ion-hide-sm-down">
+            <div>{{data.address1}}</div>
+          </ion-col>
+          <ion-col class="ion-hide-sm-down">
+            <div class="row1" *ngFor="let file of data.doc_file">
+              <div class="download1" (click)="Viewfile(file,data.doc_file_extn,data.name)">
+                <div class="content1">
+                  <p id="view_property" style="color: #3880ff;margin:0px" class="text-underline">
+                    Download a Copy
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+
+
+  </div>
+</ion-content>

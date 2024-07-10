@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button-ios" text="Back" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-back-button text="BACK" mode="ios">
+	</ion-back-button> -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Notification Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background: #ffffff !important;">
+  <div class="main-section">
+    <div class="welcome-cont text-center" text-center>Access Request to a Property</div>
+    <p>
+      {{first_name}} {{last_name}} from
+      {{company}} would
+      like to access the documents
+      for {{address}}</p>
+
+    <p>Only authorise requests from companies you know and are expecting.</p>
+
+    <div>
+      <p>Allow for:</p>
+      <!-- Giving access to particular property -->
+      <ion-list radio-group class="sectors mb-30">
+        <ion-radio-group>
+          <ion-item lines="none">
+            <ion-label>1 Day (selected)</ion-label>
+            <ion-radio on-click="selectlist('1')">1 Day (selected)</ion-radio>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>1 Week</ion-label>
+            <ion-radio on-click="selectlist('7')">1 Week</ion-radio>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>1 Month</ion-label>
+            <ion-radio on-click="selectlist('30')">1 Month</ion-radio>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>Forever</ion-label>
+            <ion-radio on-click="selectlist('forever')">Forever</ion-radio>
+          </ion-item>
+        </ion-radio-group>
+        <span *ngIf="duraError" style="color: red;margin-left:18px;">Select Duration</span>
+      </ion-list>
+      <div class="ml-16">
+        <ion-button class="theme-btn" expand="block" type="submit" on-click="update_request_access(1)">Authorise Access
+        </ion-button>
+      </div>
+      <p class="text-center">I was not expecting this request.</p>
+      <!-- Decline process -->
+      <div class="ml-16">
+        <ion-button class="theme-btn" expand="block" type="submit" on-click="update_request_access(2)">Decline Access
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-title>CertOn HUB</ion-title>
+  </ion-toolbar>
+</ion-footer>

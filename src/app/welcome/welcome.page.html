@@ -1,0 +1,130 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Welcome </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background: #ffffff !important;">
+  <section class="main-section">
+    <ion-grid>
+      <!--Home Owner Details-->
+      <div class="welcome_section" *ngIf="typeid != 1" id="username">
+        <!-- Home Owner Welcome Notes -->
+        <ion-row>
+          <ion-col>
+            <div text-center> <img src="assets/imgs/AGZa2fQRQOHYnLWHg0aZ_logo.png" class="logo" style="width:120px;" />
+            </div>
+            <div class="welcome-note" text-center>
+              <p>Welcome {{username}}</p>
+              <p>CertOn brings all important property related documents into one easy-to-access portal. </p>
+            </div>
+          </ion-col>
+        </ion-row>
+        <!-- Dashboard  -->
+        <ion-row>
+          <ion-col>
+            <ion-list class="main-option">
+              <ion-item icon-start mode="ios">
+                <ion-button size="default" icon-start fill="clear" (click)="gotomyprofile()">
+                  <ion-icon name="person"></ion-icon>
+                  My Profile
+                </ion-button>
+              </ion-item>
+              <ion-item icon-start mode="ios">
+                <ion-button icon-start fill="clear" size="dafault" (click)="gotoscancode()">
+                  <ion-icon name="scan-outline"></ion-icon>
+                  Scan a QR Code
+                </ion-button>
+              </ion-item>
+              <ion-item icon-start mode="ios">
+                <ion-button fill="clear" size="dafault" (click)="gotomyproperties()" icon-start>
+                  <ion-icon name="home"></ion-icon>
+                  My Properties
+                </ion-button>
+              </ion-item>
+              <ion-item icon-start mode="ios">
+                <ion-button fill="clear" size="dafault" icon-start (click)="gotomydocuments()">
+                  <ion-icon name="document"></ion-icon>
+                  <span>My Documents</span>
+                </ion-button>
+              </ion-item>
+              <ion-item icon-start mode="ios">
+                <ion-button fill="clear" size="dafault" icon-start (click)="gotonotifications()">
+                  <ion-icon name="notifications"></ion-icon>
+                  Notifications &nbsp;
+                  <ion-badge color="danger">{{notificationCount}}</ion-badge>
+                </ion-button>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <!--Comany and customer details-->
+      <div class="customer-section" *ngIf="typeid == 1" id="consumer">
+        <!-- Company Welcome Notes -->
+        <ion-row>
+          <ion-col>
+            <div text-center> <img src="assets/imgs/AGZa2fQRQOHYnLWHg0aZ_logo.png" class="logo" style="width:100px;" />
+            </div>
+            <div class="welcome-note" text-center>
+              <p> Welcome {{username}}<br />
+                Company: {{companyname}}<br />
+                <br />
+                CertOn brings all important property related documents into one easy-to-access portal.
+              </p>
+            </div>
+          </ion-col>
+        </ion-row>
+        <!-- Dashboard  -->
+        <ion-row>
+          <ion-col>
+            <ion-list class="main-option">
+              <ion-item icon-start mode="ios">
+                <ion-button size="default" icon-start fill="clear" (click)="gotomyprofile()">
+                  <ion-icon name="person"></ion-icon>
+                  My Profile
+                </ion-button>
+              </ion-item>
+              <ion-item icon-start mode="ios">
+                <ion-button icon-start fill="clear" size="dafault" (click)="gotoscancode()">
+                  <ion-icon name="scan-outline"></ion-icon>
+                  Scan a QR Code
+                </ion-button>
+              </ion-item>
+              <ion-item icon-start mode="ios">
+                <ion-button fill="clear" size="dafault" icon-start (click)="gotomyproperties()">
+                  <ion-icon name="home"></ion-icon>
+                  My Properties
+                </ion-button>
+              </ion-item>
+              <ion-item icon-start mode="ios">
+                <ion-button fill="clear" size="dafault" icon-start (click)="gotomydocuments()">
+                  <ion-icon name="document"></ion-icon>
+                  My Documents
+                </ion-button>
+              </ion-item>
+              <ion-item icon-start mode="ios">
+                <ion-button fill="clear" size="dafault" icon-start (click)="gotonotifications()">
+                  <ion-icon name="notifications"></ion-icon>
+                  Notifications &nbsp;
+                  <ion-badge color="danger">{{notificationCount}}</ion-badge>
+                </ion-button>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-grid>
+  </section>
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-title>CertOn HUB</ion-title>
+  </ion-toolbar>
+</ion-footer>

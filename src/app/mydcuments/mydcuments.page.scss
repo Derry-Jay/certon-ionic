@@ -1,0 +1,146 @@
+.header .col,
+.header {
+  background-color: lightgrey;
+}
+
+.main-table {
+  border: 1px solid grey;
+  margin-bottom: 15px;
+}
+
+ion-content {
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  background: #ffffff !important;
+}
+
+ion-button {
+  font-size: 15px !important;
+}
+
+.col {
+  padding: 5px;
+}
+
+.welcome-cont {
+  font-size: 20px;
+}
+
+.mydoc .row:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+.main-table ion-col {
+  border-right: 1px solid grey;
+  border-bottom-style: none;
+  /* word-break: break-all;
+        font-size:18px; */
+  white-space: normal;
+  padding: 5px;
+}
+
+
+
+.main-table .col .item-checkbox {
+  padding-left: 0;
+}
+
+.main-table .col .item.item-ios .checkbox-ios {
+  margin-top: -8px;
+}
+
+.main-table .col:last-child {
+  border-right: none;
+}
+
+
+.col:last-child {
+  border-right: solid 1px grey;
+}
+
+@media(max-width: 767px) {
+  .mydoc .header {
+    display: none;
+  }
+
+  .mydoc .col {
+    -webkit-flex-basis: 100%;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    border-right: none !important;
+  }
+
+  .mydoc .col.name:before,
+  .mydoc .col.type:before,
+  .mydoc .col.viewonline:before,
+  .mydoc .col.expdate:before,
+  .mydoc .col.property:before,
+  .mydoc .col.download:before {
+    display: block;
+    width: 50%;
+    float: left;
+    margin: auto;
+  }
+
+  .mydoc .col .content {
+    display: inline-block;
+    width: 50%;
+  }
+
+  .mydoc .col.name:before {
+    content: "Name :";
+  }
+
+  .mydoc .col.type:before {
+    content: "Type :";
+  }
+
+  .mydoc .col.viewonline:before {
+    content: "View Online :";
+  }
+
+  .mydoc .col.expdate:before {
+    content: "Expiration Date :";
+  }
+
+  .mydoc .col.property:before {
+    content: "Property :";
+  }
+
+  .mydoc .col.download:before {
+    content: "Download :";
+  }
+
+  .mydoc .row:nth-child(even) {
+    background-color: #f5f5f5;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .col {
+    padding: 0px 5px !important;
+  }
+}
+
+.equal {
+  display: table;
+}
+
+.row {
+  display: table-row;
+}
+
+.row div {
+  display: table-cell;
+  width: 50%;
+}
+
+.line-odd {
+  background: #f5f5f5;
+}
+
+.list-ios {
+  background: none;
+}

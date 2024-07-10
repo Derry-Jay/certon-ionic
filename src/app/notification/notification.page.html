@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button-ios" text="Back" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-back-button text="BACK" mode="ios">
+	</ion-back-button> -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Notifications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background: #ffffff !important;">
+  <div class="main-section">
+    <div class="main-table ">
+      <ion-row class="header">
+        <ion-col class="notifications">View Notifications
+        </ion-col>
+        <!-- Delete Button -->
+        <ion-col *ngIf="showDelete" class="delete">
+          <ion-button mode="ios" *ngIf="!toggleButton" fill="clear" class="light-orange" (click)="selectAll()">Select
+            All</ion-button>
+          <ion-button mode="ios" *ngIf="toggleButton" fill="clear" class="light-orange" (click)="unselectAll()">Unselect
+            All
+          </ion-button>
+          <ion-button mode="ios" class="light-orange" fill="clear" (click)="deleteNotification()">Delete</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <!-- Unread Data -->
+      <div *ngIf="unreadData.length > 0">
+        <p style="text-align: center;font-weight: bold;">Unread Messages</p>
+
+        <ion-list>
+          <ion-item-sliding *ngFor="let data of unreadData">
+
+            <ion-item style="border-bottom: groove" class="readData">
+              <ion-button id="login-button3" class="text-left" color="positive" on-click="readrequest(data.req_acc_id,data.req_status,data.username,data.expire_date,data.address1,
+             data.not_type,data.access_forever,data.notification_id,data.msg,data.uuid,data.created_at)">{{data.text}}</ion-button>
+              <ion-checkbox *ngIf="showChkbox" [checked]="sltAll" (click)="clearNotifi(data)"
+                style="display:none;text-align: end ; float: right">
+              </ion-checkbox>
+            </ion-item>
+            <ion-item-options>
+              <!-- <button ion-button class="light-orange" (click)="singleDelete(data)">Delete</button> -->
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+
+        <!-- <div class="row" *ngFor="let data of unreadData">
+          <ion-item class="alignn col">
+            <button id="login-button3" class="btn-link text-left" no-padding ion-button clear
+              color="positive"
+              on-click="readrequest(data.req_acc_id,data.req_status,data.username,data.expire_date,data.address1,
+             data.not_type,data.access_forever,data.notification_id)">
+              {{data.text}}</button>
+          </div>
+        </div>-->
+      </div>
+
+      <!-- readData -->
+      <div *ngIf="readData.length > 0">
+        <p style="text-align: center;font-weight: bold;">Read Messages</p>
+        <ion-list style="margin: 0px !important;" *ngFor="let data of readData">
+          <!--Access Request-->
+          <ion-item-sliding *ngIf="data.req_status == null">
+            <ion-item class="readData">
+              <ion-checkbox slot="start" *ngIf="showChkbox" [checked]="sltAll" (click)="clearNotifi(data)">
+              </ion-checkbox>
+              <ion-label>
+                <ion-button *ngIf="data.not_type == 1" id="login-button3" class="text-left no-padding" fill="clear"
+                  (click)="readAccessRequest(data.req_acc_id,data.not_type,data.text,data.uuid,data.created_at)">{{data.text}}</ion-button>
+                <ion-button *ngIf="(data.not_type != 1 && data.not_type !=4)" id="login-button3" class="text-left no-padding" fill="clear">
+                  {{data.text}}
+                </ion-button>
+                <ion-button *ngIf="data.not_type == 4" id="login-button3" class="text-left no-padding" fill="clear"
+                  (click)="readAccessRequest(data.req_acc_id,data.not_type,data.text,data.msg,data.uuid,data.created_at)">{{data.text}}</ion-button>
+              </ion-label>
+            </ion-item>
+            <ion-item-options>
+              <ion-button class="light-orange" size="small" (click)="singleDelete(data)">Delete</ion-button>
+            </ion-item-options>
+          </ion-item-sliding>
+
+          <!-- Authorized / Declined -->
+          <ion-item-sliding *ngIf="data.req_status != null">
+            <ion-item style="border-bottom: groove" class="readData">
+              <ion-checkbox slot="start" *ngIf="showChkbox" [checked]="sltAll" (click)="clearNotifi(data)">
+              </ion-checkbox>
+              <ion-label>
+                <ion-button id="login-button3" class="btn-link text-left" no-padding ion-button clear color="positive"
+                  on-click="readrequest(data.req_acc_id,data.req_status,data.username,data.expire_date,
+                    data.address1, data.not_type,data.access_forever,data.notification_id,data.msg,data.uuid,data.created_at)">{{data.text}}</ion-button>
+              </ion-label>
+            </ion-item>
+            <ion-item-options>
+              <ion-button ion-button class="light-orange" (click)="singleDelete(data)">Delete</ion-button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+
+      <!-- No NOtification -->
+      <div *ngIf="unreadData.length <= 0 && readData.length <= 0">
+        <div class="row">
+          <div class="col">No Notification Found</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>
+
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-title>CertOn HUB</ion-title>
+  </ion-toolbar>
+</ion-footer>

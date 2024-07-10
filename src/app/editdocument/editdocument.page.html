@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button-ios" text="Back" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-back-button text="BACK" mode="ios">
+	</ion-back-button> -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Edit Document</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background: #ffffff !important;">
+  <div class="main-section">
+
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <p><strong>Edit Document:</strong></p>
+      </ion-col>
+    </ion-row>
+
+    <div class="add_property_1">
+      <form id="link-form1">
+        <!-- Document Name -->
+        <div class="form-group">
+          <label>Document Name:</label>
+          <ion-item>
+            <ion-input type="text" placeholder="Name" [(ngModel)]="document_name" name="name"></ion-input>
+          </ion-item>
+          <div *ngIf="name_err" style="color: red;margin-top:10px;">Enter Name</div>
+        </div>
+        <!-- Document Type: -->
+        <div class="form-group">
+          <label>Document Type:</label>
+          <ion-item>
+            <ion-select placeholder="Select Property Type" [(ngModel)]="documenttype" name="type"
+              class="selectdropdown">
+              <ion-select-option *ngFor="let item of certificate_type" [value]="item.id">{{item.name}}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <!-- <div *ngIf="show_descr" class="form-group">
+          <label>Document Description:</label>
+          <ion-item>
+            <ion-input type="text" placeholder="Document Description" [(ngModel)]="doc_description"
+             name="description"></ion-input>
+          </ion-item>
+          <span *ngIf="descr_err" style="color: red">Enter Description</span>
+        </div> -->
+
+        <!-- Expiration Date -->
+        <div class="form-group">
+          <label>Expiration Date:</label>
+          <ion-item class="date-field">
+            <ion-datetime displayFormat="DD/MM/YYYY" min="2016-01-01" max="2031-12-31" placeholder="DD/MM/YYYY"
+              [(ngModel)]="purchasedDate" name="expire_date"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-button class="light-orange ion-no-margin" (click)="addoneyear(purchasedDate,purchaseyear)">+1 Year</ion-button>
+            <ion-item>
+            <ion-button class="light-orange ion-no-margin addfive" (click)="addfiveyear(purchasedDate,purchaseyear)">+5 Year</ion-button>
+          </ion-item>  
+          </ion-item>
+        </div>
+        <div>
+          <ion-button class="light-orange ion-no-margin" (click)="updatedocument()">Save Changes</ion-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-title>CertOn HUB</ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,41 @@
+<ion-content [fullscreen]="true">
+  <ion-row style="height: 100%;" class="ion-align-items-center">
+    <ion-col>
+      <ion-slides #slides class="slidebk" pager="true" mode="ios">
+        <ion-slide>
+          <div class="slide-close"><img src="assets/images/close-icon.png" (click)="closeslide()" /></div>
+          <img src="assets/images/slide-1.png" class="slidemain" />
+          <img src="assets/images/next-btn.png" (click)="nextslide(slides)" class="nextbtn" />
+          <img src="assets/images/slide-1-footer-text.png" class="slidefoot" />
+        </ion-slide>
+
+        <ion-slide>
+          <div class="slide-close"><img src="assets/images/close-icon.png" (click)="closeslide()" /></div>
+          <img src="assets/images/slide-2.png" class="slidemain" />
+          <img src="assets/images/next-btn.png" (click)="nextslide(slides)" class="nextbtn" />
+          <img src="assets/images/slide-1-footer-text.png" class="slidefoot" />
+        </ion-slide>
+
+        <ion-slide>
+          <div class="slide-close"><img src="assets/images/close-icon.png" (click)="closeslide()" /></div>
+          <img src="assets/images/slide-3.png" class="slidemain" />
+          <img src="assets/images/next-btn.png" (click)="nextslide(slides)" class="nextbtn" />
+          <img src="assets/images/slide-1-footer-text.png" class="slidefoot" />
+        </ion-slide>
+
+        <ion-slide>
+          <div class="slide-close"><img src="assets/images/close-icon.png" (click)="closeslide()" /></div>
+          <img src="assets/images/slide-4.png" class="slidemain" />
+          <img src="assets/images/get-start.png" (click)="closeslide()" class="nextbtn" />
+          <img src="assets/images/slide-1-footer-text.png" class="slidefoot" />
+        </ion-slide>
+
+      </ion-slides>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar transparent>
+    <ion-title>CertOn HUB</ion-title>
+  </ion-toolbar>
+</ion-footer>

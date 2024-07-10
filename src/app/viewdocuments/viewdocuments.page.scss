@@ -1,0 +1,71 @@
+.back-button-ios {
+    color: #fff;
+  }
+
+  .back-button-ios:hover {
+    border: 0px solid grey;
+  }
+
+  ion-content {
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+  }
+
+  ion-button {
+    --padding-start: 0px;
+    --padding-end: 0px;
+  }
+
+  .filename {
+    white-space: normal;
+    text-align: left;
+    line-height: 20px;
+  }
+
+  .btn-link {
+    font-size: 15px;
+    text-decoration: underline;
+  }
+
+  .doc-icon {
+    font-size: 3em;
+    padding-right: 10px;
+    color: #000;
+  }
+
+  .main-table {
+    border: 1px solid grey;
+    margin-bottom: 15px;
+  }
+
+  .viewpropertiesdata ion-row:nth-child(even),
+  .viewpropertiesdata ion-row:nth-child(even) .item-ios,
+  .viewpropertiesdata ion-row:nth-child(even) .item-md {
+    background: #f5f5f5;
+  }
+
+  .main-table ion-col {
+    border-right: 1px solid grey;
+    border-bottom-style: none;
+    min-width: 1px;
+  }
+
+  .header ion-col {
+    background-color: lightgrey;
+  }
+
+  .content {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .main-table ion-col:first-child {
+    flex: 0 55px;
+  }
+
+  .main-table .content .button-inner {
+    white-space: normal;
+    text-align: left;
+  }

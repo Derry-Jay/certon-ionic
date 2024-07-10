@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button-ios" text="Back" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Access Granted</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background: #ffffff !important;">
+  <div class="main-section">
+    <div>Good News</div>
+    <p>You now have access to the stored documents for {{address}}<br>
+      from {{from  | date: "dd-MMMM-yyyy"}} for {{period}}</p>
+    <p>This access was granted by the property account holder {{username}}</p>
+    <div *ngIf="linkhide == 1">
+      <ion-button fill="clear" class="text-underline disable-hover button button-ios button-clear button-clear-ios"
+        clear="" id="view_property" ion-button="" ng-reflect-clear="" on-click="gotomyproperties(uuid)">
+        <span class="button-inner">View Property</span>
+        <div class="button-effect"></div>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-title>CertOn HUB</ion-title>
+  </ion-toolbar>
+</ion-footer>

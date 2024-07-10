@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button-ios" text="Back" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-back-button text="BACK" mode="ios">
+	</ion-back-button> -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Approve Request</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="background: #ffffff !important;">
+  <div class="main-section">
+    <div class="welcome-cont text-center">Access Request to a Property</div>
+    <p>Thank You.</p>
+    <p>{{company}} will have access to the stored documents
+      for {{address}}
+      for {{period}}</p>
+
+    <ion-button color="primary" id="view_property" expand="full" fill="clear" class="text-underline"
+      (click)="backtohome()">Back to Home
+    </ion-button>
+
+  </div>
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-title>CertOn HUB</ion-title>
+  </ion-toolbar>
+</ion-footer>

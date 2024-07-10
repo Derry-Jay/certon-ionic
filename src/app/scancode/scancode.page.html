@@ -1,0 +1,282 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button-ios" text="Back" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Scan code</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="page4" [class.show-qr-scanner]="isOn">
+  <div id="link-container2" style="height:100%">
+    <div class="spacer" style="width:300px;height:59px;display:none" id="link-spacer2"></div>
+    <!--<div class="scan_code">
+      <button ion-button icon-start clear (click)="startcamera()"> Scan the QR Code </button>
+    </div>
+    <div class="scan-box">
+      <div class="left-box"></div>
+      <div class="scanned-code"> </div>
+      <div class="right-box"></div>
+    </div>
+    <div class="fill-box">
+      <div class="fill-box-inner"> </div>
+    </div>-->
+    <div style="background-color:#fff;">
+      <div class="property-id ">
+        <div class="left-img"> <img src="assets/imgs/sm_qr_code.png" class="img-responsive"> </div>
+        <div class="right-content">
+          <p class="status">CODE SCANNED</p>
+          <p class="id-value"><span class="name">Property ID: </span><span class="value">{{property_id}}</span></p>
+        </div>
+      </div>
+      <div class="main-section add_property" id="screenHeight">
+        <div class="property_holder" style="background-color: #fff; height:110px;width:100%;">&nbsp;</div>
+        <!-- Scanned Own Property -->
+        <div class="ownproperty hide">
+          <p>This property is in CertOn as:</p>
+          <p>{{propaddress}}</p>
+          <p>This Property is owned by you.</p>
+          <ion-button id="login-button3" size="small" fill="clear"
+            class="ion-no-padding btn-link text-left text-underline" no-padding ion-button clear color="positive"
+            on-click="viewproperty()">View Property</ion-button>
+        </div>
+
+        <!-- Scanned Have Other property Access    -->
+        <div class="otherpropertyrequest hide">
+          <p>This property is in CertOn as:</p>
+          <p>{{propaddress}}</p>
+          <p>You have Access to this property.</p>
+          <ion-button id="login-button3" fill="clear" size="small"
+            class="ion-no-padding btn-link text-left text-underline" no-padding ion-button clear color="positive"
+            on-click="viewproperty()">View Property</ion-button>
+        </div>
+
+        <!-- Scanned Another Property -->
+        <div class="otherproperty hide">
+          <p>This property is in CertOn as:</p>
+          <p>{{propaddress}}</p>
+          <p>This property is owned by another CertOn user. Request Access to view the documents from the
+            owner.</p>
+          <ion-button id="login-button3" size="small" fill="clear"
+            class="ion-no-padding btn-link text-left text-underline" no-padding color="positive"
+            on-click="requestaccess()">Request Access</ion-button>
+        </div>
+
+        <!-- No Existing property  -->
+        <div class="noproperty hide" style="background-color: #fff;width:100%;">
+          <p>{{nopropertymessage}}</p>
+          <div class="add_property">
+            <form id="link-form1 hide">
+              <div class="sub-head"> 1/2 Add Property</div>
+              <ion-list>
+                <!-- PostCode Lookup -->
+                <ion-item id="link-input2" class="postcode-box form-m-bottom-30 ion-no-padding">
+                  <ion-input type="text" placeholder="Enter Postcode" [(ngModel)]="postcode" name="postcode"
+                    (keyup)="chkErr('a')"></ion-input>
+                </ion-item>
+                <div>
+                  <ion-button ion-button id="link-heading1" class="lookup-btn light-orange"
+                    on-click="getpostcodelookup()">Lookup
+                  </ion-button>
+                </div>
+                <div *ngIf="pstlerr" class="pstlErr"> Enter Postal Code </div>
+                <!-- Location -->
+                <div class="sm-sub-head-form" style="float:left;margin-bottom:15px;">Choose Location
+                </div>
+                <div class="col choose-location" style="border-right: none; margin-bottom:15px;">
+                  <ion-list>
+                    <ion-radio-group radio-group [(ngModel)]="location" name="location" ngDefaultControl
+                      (ngModelChange)="chkErr('b')">
+                      <ion-item *ngFor="let item of locations" class="ion-no-padding">
+                        <ion-radio value="{{item}}" (click)="selectProperty()" slot="end">
+                        </ion-radio>
+                        <ion-label>{{item}}</ion-label>
+                      </ion-item>
+                    </ion-radio-group>
+                  </ion-list>
+                </div>
+                <div *ngIf="locerr" class="locErr"> Choose any Location </div>
+                <!-- Property Type -->
+                <ion-item class="form-m-bottom-30 selectprop ion-no-padding">
+                  <ion-select placeholder="Select Property Type" [(ngModel)]="propertytype" name="propertytype"
+                    class="selectdropdown" (ngModelChange)="chkErr('c')">
+                    <ion-select-option *ngFor="let item of property_type" value="{{item.id}}">
+                      {{item.name}}
+                    </ion-select-option>
+                  </ion-select>
+                </ion-item>
+                <div *ngIf="properr" class="propErr"> Select Property Type </div>
+                <!-- Qr Code Installation Date -->
+                <ion-item class="form-m-bottom-30 date-field ion-no-padding">
+                  <ion-label>QR Code Installation date</ion-label>
+                  <ion-datetime displayFormat="DD/MM/YYYY" max="2031-12-31" placeholder="DD/MM/YYYY"
+                    name="purchasedDate" [(ngModel)]="purchasedDate" (ngModelChange)="chkErr('d')">
+                  </ion-datetime>
+                </ion-item>
+                <div>
+                  <div *ngIf="typeid == 1">
+                    <ion-button expand="block" (click)="addcustomerproperty()" class="light-orange">
+                      Save for Myself
+                    </ion-button>
+                    <p style="text-align: center;">Or</p>
+                    <ion-button expand="block" (click)="Showcustomercontainer()" class="light-orange">Are you adding for
+                      a New
+                      Customer?</ion-button>
+                  </div>
+                  <ion-button expand="block" class="light-orange" *ngIf=" typeid !=1" (click)="addcustomerproperty()">
+                    Finish</ion-button>
+                </div>
+              </ion-list>
+            </form>
+          </div>
+        </div>
+
+        <!-- Home Owner Scan Another Property -->
+        <div class="notownedproperty hide" style="background-color: #fff; height:110px;width:100%;">
+          <p>This property is owned by another CertOn user.</p>
+        </div>
+      </div>
+
+      <!-- Add property to another customer -->
+      <div class="add-doc-form main-section hide">
+        <form [formGroup]="credentialsForm" style="padding:0px 20px;">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-12 class="sub-head">2/2 Add Customer</ion-col>
+            </ion-row>
+            <ion-list>
+              <!-- FirstName -->
+              <ion-item class="form-m-bottom-30 ion-no-padding">
+                <ion-input type="text" [formControl]="credentialsForm.controls['first_name']" placeholder="First Name"
+                  [(ngModel)]="first_name" name="first_name"></ion-input>
+              </ion-item>
+              <div *ngIf="credentialsForm.controls.first_name.value == ''" class="validator-error valErr">
+                Please enter a First Name
+              </div>
+              <div *ngIf="!credentialsForm.controls.first_name.valid && credentialsForm.controls.first_name.dirty &&
+              credentialsForm.controls.first_name.value != '' " class="validator-error valErr">
+                Minimum 2 Characters. </div>
+
+              <!-- Last Name -->
+              <ion-item class="form-m-bottom-30 ion-no-padding">
+                <ion-input type="text" [formControl]="credentialsForm.controls['last_name']" placeholder="Last Name"
+                  [(ngModel)]="last_name" name="last_name"></ion-input>
+              </ion-item>
+              <div *ngIf="credentialsForm.controls.last_name.value == ''" class="validator-error valErr">
+                Please enter a Last Name
+              </div>
+              <div *ngIf="!credentialsForm.controls.last_name.valid && credentialsForm.controls.last_name.dirty &&
+              credentialsForm.controls.last_name.value != ''" class="validator-error valErr"> Minimum 2 Characters.
+              </div>
+
+              <!-- Email Address -->
+              <ion-item class="form-m-bottom-30 ion-no-padding">
+                <ion-input type="text" [formControl]="credentialsForm.controls['email']" placeholder="Email Address"
+                  [(ngModel)]="email" name="email"></ion-input>
+              </ion-item>
+              <div *ngIf="!credentialsForm.controls.email.valid && credentialsForm.controls.email.dirty"
+                class="validator-error valErr"> Please enter a valid email. </div>
+
+              <!-- Phone Number -->
+              <ion-item class="form-m-bottom-30 ion-no-padding">
+                <ion-input type="number" [formControl]="credentialsForm.controls['phone']" placeholder="Contact Number"
+                  [(ngModel)]="phone" name="phone"></ion-input>
+              </ion-item>
+              <div *ngIf="!credentialsForm.controls.phone.valid && credentialsForm.controls.phone.dirty"
+                class="validator-error valErr"> Minimum 10 digits </div>
+
+              <!-- Password -->
+              <ion-item class="form-m-bottom-30 ion-no-padding">
+                <ion-label class="ion-no-margin">
+                  <ion-icon *ngIf="showtik" style="position:absolute;right: 0;
+                      width: 40px;
+                      top: 11px;
+                      font-size: x-large;
+                      color: green;" name="checkmark"></ion-icon>
+                  <ion-icon *ngIf="showex" style="position: absolute;
+                      right: 0;
+                      width: 40px;
+                      top: 11px;font-size: x-large;color: red;" name="close"></ion-icon>
+                </ion-label>
+                <ion-input type="password" [formControl]="credentialsForm.controls['password']" placeholder="Password"
+                  (keyup)="psdDesign()" [(ngModel)]="password" name="password">
+                </ion-input>
+              </ion-item>
+              <!-- <div [ngStyle]="passwordStrength"></div> -->
+              <!-- <div *ngIf="!credentialsForm.controls.password.valid && credentialsForm.controls.password.dirty"
+                class="validator-error valErr"> Please enter a valid password. </div> -->
+              <div *ngIf="pswder" class="errorItem">
+                <p style="color:red;white-space: normal;" *ngIf="charerr">{{charerr}}</p>
+                <p style="color:red;white-space: normal;" *ngIf="digiterr">{{digiterr}}</p>
+                <p style="color:red;white-space: normal;" *ngIf="uppercaseerr">{{uppercaseerr}}</p>
+                <p style="color:red;white-space: normal;" *ngIf="specialcharerr">{{specialcharerr}}</p>
+              </div>
+
+              <!-- Confirm Password -->
+              <ion-item class="form-m-bottom-30 ion-no-padding">
+                <ion-label class="ion-no-margin">
+                  <ion-icon *ngIf="shwpsdErr" style="position:absolute;right: 0;
+                        width: 40px;
+                        top: 11px;
+                        font-size: x-large;
+                        color: green;" name="checkmark">
+                  </ion-icon>
+                  <ion-icon *ngIf="psdErr" style="position: absolute;
+                        right: 0;
+                        width: 40px;
+                        top: 11px;font-size: x-large;color: red;" name="close">
+                  </ion-icon>
+                </ion-label>
+                <ion-input type="password" [formControl]="credentialsForm.controls['confirmPsd']"
+                  placeholder="Confirm Password" [(ngModel)]="confirmPsd" (keyup)="checkpassword()"
+                  name="confirmpassword"></ion-input>
+              </ion-item>
+              <div *ngIf="psdErr" class="valErr"> Password not Matched. </div>
+
+              <div>
+                <ion-button [disabled]="!credentialsForm.valid" expand="block" class="light-orange"
+                  (click)="addproperty()">Finish</ion-button>
+              </div>
+            </ion-list>
+          </ion-grid>
+        </form>
+      </div>
+
+      <!--Add Document section-->
+
+      <div id="adddocument" class="add_document main-section hide">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-12 class="sub-head"> Add Documents</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>
+              <div class="lg-btn-section">
+                <button ion-button icon-only (click)="adddocument()">
+                  <ion-icon name="add" ios="ios-add"></ion-icon>
+                </button>
+                <div class="btn-text">Add Now</div>
+              </div>
+            </ion-col>
+            <ion-col col-6>
+              <div class="lg-btn-section">
+                <button ion-button icon-only>
+                  <ion-icon ios="ios-alarm-outline" md="md-alarm"></ion-icon>
+                </button>
+                <div class="btn-text">Add Later</div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>CertOn HUB</ion-title>
+  </ion-toolbar>
+</ion-footer>

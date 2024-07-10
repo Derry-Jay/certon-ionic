@@ -1,0 +1,230 @@
+app-welcome {
+  #cart-btn {
+    position: relative;
+  }
+
+  #cart-badge {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+
+  .customer-section .title {
+    font-size: 30px;
+    padding-left: 18px;
+  }
+
+  .main-option ion-button {
+    color: #e8a45e;
+    /* font-size: 30px;*/
+    margin-bottom: 0px;
+    padding-left: 0;
+    font-size: 2rem;
+  }
+
+  .main-option .list-ios {
+    margin-bottom: 0px;
+  }
+
+
+  .main-option .list-md {
+    margin-bottom: 24px;
+  }
+
+  .back-button-ios {
+    display: none !important;
+  }
+
+  /*Media Queries*/
+  @media screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+
+    .customer-section .title {
+      font-size: 26px;
+      padding-left: 18px;
+    }
+
+    .main-option ion-button {
+      color: #e8a45e;
+      font-size: 26px;
+      margin-bottom: 0px;
+      padding-left: 0;
+    }
+
+    .main-option .list-md {
+      margin-bottom: 24px;
+    }
+
+
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+
+    .customer-section .title {
+      font-size: 26px;
+      padding-left: 18px;
+    }
+
+    .main-option .list-md {
+      margin-bottom: 24px;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+
+    .customer-section .title {
+      font-size: 24px;
+      padding-left: 18px;
+    }
+
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+    .customer-section .title {
+      font-size: 24px;
+      padding-left: 18px;
+    }
+
+  }
+
+
+  @media screen and (min-width: 641px) and (max-width:767px) {
+
+    .customer-section .title {
+      font-size: 24px;
+      padding-left: 18px;
+    }
+
+  }
+
+
+  @media screen and (min-width: 400px) and (max-width:640px) {
+
+
+    .customer-section .title {
+      font-size: 22px;
+      padding-left: 18px;
+    }
+
+  }
+
+
+  @media screen and (min-width: 240px) and (max-width:399px) {
+    .customer-section .title {
+      font-size: 18px;
+      padding-left: 18px;
+    }
+  }
+}
+
+/*Common styles for all pages*/
+
+.bar-button-default-ios,
+.bar-button-default.bar-button-ios-default,
+.bar-button-clear-ios-default,
+.bar-button-default-md,
+.bar-button-clear-md-default,
+.bar-button-md-default {
+  color: #fff
+}
+
+.main-section {
+  background: #ffffff;
+  text-align: center;
+}
+ion-content{
+  --padding-top:20px;
+  --padding-bottom:20px;
+  --padding-start:20px;
+  --padding-end:20px;
+}
+
+ion-item {
+  --border-style: none;
+  margin-bottom: 5px;
+}
+
+ion-item:last-of-type {
+  margin-bottom: 0px;
+}
+ion-item ion-button {
+  color: #e8a45e;
+  font-size: 20px;
+  --padding-start:0px;
+  --padding-end: 0px;
+  --padding-top:0px;
+  --padding-bottom:0px;
+  max-height:40px;
+}
+
+ion-item button:focus {
+  outline: none;
+}
+
+.item-native {
+  --border-style: none !important;
+}
+
+ion-badge {
+  border-radius: 10px;
+  background: #FF0000;
+  height: 20px;
+}
+
+
+.main-section-table {
+  padding: 35px;
+  background: #ffffff;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.pad-bottom-0 {
+  padding-bottom: 0;
+}
+
+.sm-sub-head-form {
+  text-align: left;
+  padding: 15px 15px 15px 17px;
+
+}
+
+.sm-sub-head-table {
+  text-align: left;
+  padding: 15px 0;
+  margin: 0;
+}
+
+
+.list-ios .date-field {
+  padding-right: 15px;
+}
+
+.list-ios .date-field .item-inner {
+  border: 1px solid #95989a !important;
+}
+
+.list-ios .date-field .item-inner .label,
+.list-ios .date-field .item-inner .label-ios {
+  padding-left: 15px;
+  color: #505050;
+}
+
+.welcome-cont,
+.sub-header {
+  font-size: 2rem;
+}
+.main-option .list-ios {
+  margin-bottom: 0px;
+}
+[icon-start] ion-icon {
+  font-size: 35px;
+  margin-right: 15px;
+}
+.welcome-note {
+  font-size: 22px;
+}
+
+

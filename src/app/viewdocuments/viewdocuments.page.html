@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button-ios" text="Back" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-back-button text="BACK" mode="ios">
+	</ion-back-button> -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>View Document</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background: #ffffff !important;">
+  <div class="main-section">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <p><strong>View Document:</strong></p>
+          <p>{{name}}&nbsp;at&nbsp;{{docData}}</p>
+        </ion-col>
+      </ion-row>
+
+      <!--<ion-row>
+        <ion-col class="ion-no-padding">
+          <ion-button class="btn-link" fill="clear" color="positive" on-click="showdoc()">
+            <ion-icon class="doc-icon" name="document"></ion-icon>View Document
+          </ion-button>
+        </ion-col>
+      </ion-row>-->
+
+      <div class="main-table">
+        <!-- Headings -->
+        <ion-row class="header">
+          <ion-col>S.No </ion-col>
+          <ion-col>Document </ion-col>
+        </ion-row>
+        <!-- Values -->
+
+        <div class="viewpropertiesdata">
+          <ion-row *ngFor="let file of doc_file; let i = index" [attr.data-index]="i">
+
+            <ion-col>
+              <div class="content">
+                {{i + 1}}
+              </div>
+            </ion-col>
+
+            <ion-col>
+              <div class="content">
+                <ion-button class="btn-link" fill="clear" on-click="showdoc(file)">
+                  <ion-icon class="doc-icon" name="document"></ion-icon>
+                  <span class="filename">{{file}}</span>
+                </ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+
+      <!-- Document Details -->
+      <ion-row>
+        <ion-col><b>Document Name:</b></ion-col>
+        <ion-col>{{name}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col><b>Document Type:</b></ion-col>
+        <ion-col>{{document_type}}</ion-col>
+      </ion-row>
+      <!-- <div *ngIf ="show_docdescr" class="row">
+        <div class="col">Document Description:</div>
+        <div class="col">{{doc_description}}</div>
+      </div> -->
+      <ion-row>
+        <ion-col><b>Expiration Date:</b></ion-col>
+        <ion-col>{{expire_date}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf="otherprop == 0 || (otherprop == 1 && user_id == logged_user_id)">
+        <ion-col>
+          <ion-button id="login-button3" class="btn-link" fill="clear" color="positive" on-click="editdocument()">
+            Edit Document
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-title>CertOn HUB</ion-title>
+  </ion-toolbar>
+</ion-footer>

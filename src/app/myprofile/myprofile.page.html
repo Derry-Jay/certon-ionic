@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button-ios" text="Back" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-back-button text="BACK" mode="ios">
+	</ion-back-button> -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="sub-head">My Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background: #ffffff !important;">
+	<div class="main-section">
+		<div class="userprofile">
+			<div class="welcome-cont">
+				My Profile
+			</div>
+			<p><span>Name:</span>&nbsp;&nbsp;<span>{{userData.first_name}} {{userData.last_name}}</span></p>
+			<p><span>Email:</span>&nbsp;&nbsp;<span>{{userData.email}}</span></p>
+			<p><span>Contact Number:</span>&nbsp;&nbsp;<span>{{userData.contact_no}}</span></p>
+			<p *ngIf="userData.cont_addr1 !=''"><span>Address:</span>&nbsp;&nbsp;<span>{{userData.cont_addr1}},{{userData.cont_addr2}}</span></p>
+		</div>
+		<div class="companyprofile" *ngIf="userData.roleName == 'Installer'">
+			<div class="welcome-cont">
+				Company Details
+			</div>
+			<p><span>Company Name:</span>&nbsp;&nbsp;<span>{{userData.companyname}}</span></p>
+			<p><span>Company Reg No:</span>&nbsp;&nbsp;<span>{{userData.companyregno}}</span></p>
+			<p><span>Company Tel No:</span>&nbsp;&nbsp;<span>{{userData.companytel}}</span></p>
+
+			<p><span>Sectors:</span>&nbsp;&nbsp;<span>{{selectors}}</span></p>
+		</div>
+
+		<ion-button mode="ios" class="text-underline" size="small" color="primary" fill="clear" expand="full"
+      on-click="editprofile()">
+      Edit My
+      Profile</ion-button>
+	</div>
+</ion-content>
+
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-title>CertOn HUB</ion-title>
+  </ion-toolbar>
+</ion-footer>

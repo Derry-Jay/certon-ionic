@@ -1,0 +1,23 @@
+.tabbar {
+    left: 0;
+    top: 0;
+    position: absolute;
+    bottom: auto !important;
+    /*background:white !important; */
+    border-bottom: 1px solid #aaa;
+}
+ion-tab-button[aria-selected=true] {
+    color: #488aff  !important;
+    text-decoration:underline;
+}
+ion-tab-button{
+    color: #000 !important;
+}
+ion-label{
+  font-weight:600;
+}
+.tabs-ios .tab-button.has-title-only .tab-button-text {
+    margin: 2px 0;
+    font-size: 17px;
+    line-height: 3.1;
+}

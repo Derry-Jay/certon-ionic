@@ -1,0 +1,47 @@
+.back-button-ios {
+    color: #fff;
+  }
+  .pl-15{
+    padding-left:15px;
+  }
+  .mb-15{
+    margin-bottom: 15px;
+  }
+  ion-item{
+    --inner-padding-end:0px;
+  }
+  .lookup-btn{
+    --border-radius:5px;
+  }
+  .back-button-ios:hover {
+    border: 0px solid grey;
+  }
+  ion-button{
+    margin:0px !important;
+  }
+  ion-content {
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+  }
+  .float-right{
+    float: right;
+  }
+  .clear_all{
+    clear:both;
+  }
+  .theme-btn {
+    --color: #fff;
+    --background: #e29c59;
+    text-transform: inherit;
+  }
+  .date-field {
+    border: 1px solid #95989a;
+    font-size:15px;
+  }
+  .postcode-box{
+    width: calc(100% - 100px);
+    float: left;
+    display: inline-block;
+  }

@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Help </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding style="background: #ffffff !important;">
+  <p class="text-center"><strong>Freqently Asked Questions</strong></p>
+
+  <div class="main-section">
+    <div *ngFor="let data of questionAns">
+      <div class="qsSpace">{{data.no}}. {{ data.questions }}</div>
+      <div [innerHTML]=data.answers></div> <br>
+    </div>
+  </div>
+
+
+</ion-content>

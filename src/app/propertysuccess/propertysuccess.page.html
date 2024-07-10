@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Property Success</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background: #ffffff !important;">
+  <!-- Adding property to oneself -->
+  <div class="main-section" *ngIf="my_page == 1">
+    <p><strong>New Property Added</strong></p>
+    <p>Good news!</p>
+
+    <p>You now have successfully added the new Property to your account.</p>
+    <p>{{address}}</p>
+    <p>Type: {{proptypename}}</p>
+    <p>QR Code Installation Date: {{datepurchased}}</p>
+    <br>
+    <p>The Property will now appear in your My Properties</p>
+
+    <ion-button ion-button class="btn-link text-underline ion-no-padding" fill="clear" color="positive"
+      (click)="gotoProprtyPage()">Back to home</ion-button>
+  </div>
+
+  <!-- Adding property to another customer -->
+  <div class="main-section" *ngIf="my_page != 1">
+    <p><strong>New Property Added</strong></p>
+    <p>Good news!</p>
+    <p>You now have successfully added the new Property to the new account of {{firstname}} {{lastname}}.</p>
+    <p>{{address}}</p>
+    <p>Type: {{proptypename}}</p>
+    <p>QR Code Installation Date: {{datepurchased}}</p>
+    <br>
+    <p>The Property will now appear in your Other Properties Section,
+      You have been Granted Access to this Property for 1 Month.</p>
+    <br>
+    <p>The customer will receive a welcome email to: {{email}}</p>
+    <ion-button class="btn-link text-underline ion-no-padding" fill="clear" color="positive"
+      (click)="gotoProprtyPage()">Back to home</ion-button>
+  </div>
+</ion-content>
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-title>CertOn HUB</ion-title>
+  </ion-toolbar>
+</ion-footer>
